@@ -211,14 +211,35 @@ body {
   transform: rotate(348.75deg);
 }
 
+#colorChoice {
+  font-size: 16px;
+  padding: 8px;
+  margin-bottom: 10px;
+  /* Espaçamento entre o seletor e o input de aposta */
+}
+
 .bet-controls {
+  display: flex;
+  flex-direction: column;
+  /* Coloca os elementos um abaixo do outro */
+  align-items: center;
+  /* Alinha o conteúdo ao centro */
   margin-top: 16px;
+}
+
+label {
+  font-size: 20px;
+  /* Aumenta o tamanho do texto */
+  color: white;
+  /* Faz o texto ficar mais visível */
+  margin-bottom: 5px;
 }
 
 #betAmount {
   font-size: 16px;
   padding: 8px;
-  margin-right: 10px;
+  margin-bottom: 10px;
+  /* Espaçamento entre o input de aposta e o botão */
 }
 
 .trigger {
