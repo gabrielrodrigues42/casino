@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roleta</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="balance-display">Saldo: <span id="balance">1000</span></div>
+      <div class="result-display">Resultado: <span id="result">0</span></div>
+      <div class="total-gain-loss-display">
+        Ganho/Perda Acumulado: <span id="totalGainLoss">0</span>
+      </div>
+      <div class="indicator"></div>
+      <div class="roullete">
+        <!-- fill color -->
+        <div class="fill fill_1"></div>
+        <div class="fill fill_2"></div>
+        <div class="fill fill_3"></div>
+        <div class="fill fill_4"></div>
+        <div class="fill fill_5"></div>
+        <div class="fill fill_6"></div>
+        <div class="fill fill_7"></div>
+        <div class="fill fill_8"></div>
+        <div class="fill fill_9"></div>
+        <div class="fill fill_10"></div>
+        <div class="fill fill_11"></div>
+        <div class="fill fill_12"></div>
+        <div class="fill fill_13"></div>
+        <div class="fill fill_14"></div>
+        <div class="fill fill_15"></div>
+        <div class="fill fill_16"></div>
+        <!-- content -->
+        <div class="content content_1">14x</div>
+        <div class="content content_2">2x</div>
+        <div class="content content_3">4x</div>
+        <div class="content content_4">2x</div>
+        <div class="content content_5">4x</div>
+        <div class="content content_6">2x</div>
+        <div class="content content_7">4x</div>
+        <div class="content content_8">2x</div>
+        <div class="content content_9">4x</div>
+        <div class="content content_10">2x</div>
+        <div class="content content_11">4x</div>
+        <div class="content content_12">2x</div>
+        <div class="content content_13">4x</div>
+        <div class="content content_14">2x</div>
+        <div class="content content_15">4x</div>
+        <div class="content content_16">2x</div>
+      </div>
+      <div class="bet-controls">
+        <input type="number" id="betAmount" placeholder="Valor da Aposta" />
+        <button class="trigger">Girar</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

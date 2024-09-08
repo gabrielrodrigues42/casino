@@ -1,0 +1,248 @@
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  height: 100%;
+  background: #333;
+}
+
+.container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.balance-display,
+.result-display {
+  margin-bottom: 10px;
+  color: white;
+  font-size: 20px;
+}
+
+.indicator {
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 20px solid orange;
+  transform: translateX(0%);
+  rotate: 180deg;
+  z-index: 2;
+}
+
+.roullete {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 3px solid black;
+  background: conic-gradient(green 0deg 22.5deg,
+      black 22.5deg 45deg,
+      red 45deg 67.5deg,
+      black 67.5deg 90deg,
+      red 90deg 112.5deg,
+      black 112.5deg 135deg,
+      red 135deg 157.5deg,
+      black 157.5deg 180deg,
+      red 180deg 202.5deg,
+      black 202.5deg 225deg,
+      red 225deg 247.5deg,
+      black 247.5deg 270deg,
+      red 270deg 292.5deg,
+      black 292.5deg 315deg,
+      red 315deg 337.5deg,
+      black 337.5deg 360deg);
+}
+
+.fill {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(50% 50%, 100% 0%, 100% 100%);
+  transform-origin: center;
+}
+
+.line {
+  width: 300px;
+  height: 2px;
+  position: absolute;
+  top: 149px;
+  left: 0;
+}
+
+.line_1 {
+  transform: rotate(22.5deg);
+}
+
+.line_2 {
+  transform: rotate(45deg);
+}
+
+.line_3 {
+  transform: rotate(67.5deg);
+}
+
+.line_4 {
+  transform: rotate(90deg);
+}
+
+.line_5 {
+  transform: rotate(112.5deg);
+}
+
+.line_6 {
+  transform: rotate(135deg);
+}
+
+.line_7 {
+  transform: rotate(157.5deg);
+}
+
+.line_8 {
+  transform: rotate(180deg);
+}
+
+.line_9 {
+  transform: rotate(202.5deg);
+}
+
+.line_10 {
+  transform: rotate(225deg);
+}
+
+.line_11 {
+  transform: rotate(247.5deg);
+}
+
+.line_12 {
+  transform: rotate(270deg);
+}
+
+.line_13 {
+  transform: rotate(292.5deg);
+}
+
+.line_14 {
+  transform: rotate(315deg);
+}
+
+.line_15 {
+  transform: rotate(337.5deg);
+}
+
+.line_16 {
+  transform: rotate(360deg);
+}
+
+.content {
+  color: white;
+  font-size: 16px;
+  padding-top: 16px;
+  height: 280px;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+
+.content_1 {
+  transform: rotate(11.25deg);
+}
+
+.content_2 {
+  transform: rotate(33.75deg);
+}
+
+.content_3 {
+  transform: rotate(56.25deg);
+}
+
+.content_4 {
+  transform: rotate(78.75deg);
+}
+
+.content_5 {
+  transform: rotate(101.25deg);
+}
+
+.content_6 {
+  transform: rotate(123.75deg);
+}
+
+.content_7 {
+  transform: rotate(146.25deg);
+}
+
+.content_8 {
+  transform: rotate(168.75deg);
+}
+
+.content_9 {
+  transform: rotate(191.25deg);
+}
+
+.content_10 {
+  transform: rotate(213.75deg);
+}
+
+.content_11 {
+  transform: rotate(236.25deg);
+}
+
+.content_12 {
+  transform: rotate(258.75deg);
+}
+
+.content_13 {
+  transform: rotate(281.25deg);
+}
+
+.content_14 {
+  transform: rotate(303.75deg);
+}
+
+.content_15 {
+  transform: rotate(326.25deg);
+}
+
+.content_16 {
+  transform: rotate(348.75deg);
+}
+
+.bet-controls {
+  margin-top: 16px;
+}
+
+#betAmount {
+  font-size: 16px;
+  padding: 8px;
+  margin-right: 10px;
+}
+
+.trigger {
+  font-size: 24px;
+  border-radius: 16px;
+  padding: 8px 16px;
+  border: 2px solid black;
+  cursor: pointer;
+  background-color: orange;
+}
+
+.total-gain-loss-display {
+  margin-bottom: 10px;
+  color: white;
+  font-size: 20px;
+}
+
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(7045deg);
+  }
+}
