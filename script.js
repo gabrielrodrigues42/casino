@@ -101,7 +101,12 @@ function updateTextColor(gainOrLoss) {
 function getResult(rotation, chosenColor) {
   // Cada fatia tem 22.5 graus
   const sectionAngle = 22.5;
-  const sectionIndex = Math.floor(rotation / sectionAngle);
+
+  // Normalizando a rotação para garantir que esteja entre 0 e 360 graus
+  const normalizedRotation = rotation % 360;
+
+  // Calcula o índice da fatia correspondente, usando Math.round para melhorar a precisão
+  const sectionIndex = Math.floor(normalizedRotation / sectionAngle);
 
   let actualColor;
   let multiplier;
@@ -128,3 +133,4 @@ function getResult(rotation, chosenColor) {
   // Caso contrário, perde (retorna -1 para indicar a perda)
   return -1;
 }
+
