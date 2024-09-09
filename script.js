@@ -1,21 +1,43 @@
 const roullete = document.querySelector(".roullete");
 const trigger = document.querySelector(".trigger");
 const balanceDisplay = document.getElementById("balance");
-const resultDisplay = document.getElementById("result");
-const totalGainLossDisplay = document.getElementById("totalGainLoss");
+const resultDisplay = document.querySelector(".result-display span");
+const totalGainLossDisplay = document.querySelector(
+  ".total-gain-loss-display span"
+);
 const betAmountInput = document.getElementById("betAmount");
-const colorChoice = document.getElementById("colorChoice"); // Novo: Seleção da cor
+const colorChoice = document.getElementById("colorChoice");
+const roundCounterDisplay = document.getElementById("roundCounter");
+const colorToggleButton = document.getElementById("colorToggleButton");
 
 let balance = 1000; // Saldo inicial
 let currentRotation = 0; // Ângulo de rotação atual
 let totalGainLoss = 0; // Ganho/Perda Acumulado
-let roundCounter = 0; // Contador de rodadas (para a lógica futura)
+let roundCounter = 0; // Contador de rodadas
+let isColorModeEnabled = false; // Estado para saber se o modo de cores (verde/vermelho) foi ativado
+
+// Inicializa o texto do botão como "Colorido"
+colorToggleButton.textContent = "Colorido";
+
+// Função para alternar entre branco estático e verde/vermelho conforme o resultado
+colorToggleButton.addEventListener("click", () => {
+  isColorModeEnabled = !isColorModeEnabled; // Alterna o estado
+  if (!isColorModeEnabled) {
+    // Se desativar, volta os textos para branco
+    resultDisplay.style.color = "white";
+    totalGainLossDisplay.style.color = "white";
+    colorToggleButton.textContent = "Colorido"; // Atualiza o texto do botão
+  } else {
+    updateTextColor(parseInt(resultDisplay.textContent)); // Usa o valor real do resultado atual
+    colorToggleButton.textContent = "Branco"; // Atualiza o texto do botão
+  }
+});
 
 trigger.addEventListener("click", onClickTrigger);
 
 function onClickTrigger(e) {
   const betAmount = parseInt(betAmountInput.value);
-  const chosenColor = colorChoice.value; // Obtém a cor selecionada
+  const chosenColor = colorChoice.value;
 
   if (isNaN(betAmount) || betAmount <= 0) {
     alert("Por favor, insira um valor válido para a aposta.");
@@ -49,13 +71,31 @@ function onClickTrigger(e) {
     balance += gainOrLoss;
     totalGainLoss += gainOrLoss; // Atualiza o ganho/perda acumulado
 
+    // Atualiza o saldo
     balanceDisplay.textContent = balance;
-    resultDisplay.textContent = gainOrLoss > 0 ? `+${gainOrLoss}` : gainOrLoss;
-    totalGainLossDisplay.textContent =
-      totalGainLoss > 0 ? `+${totalGainLoss}` : totalGainLoss;
 
-    roundCounter++; // Atualiza o contador de rodadas
+    // Formatação correta do sinal
+    resultDisplay.textContent =
+      gainOrLoss >= 0 ? `+${gainOrLoss}` : `${gainOrLoss}`;
+    totalGainLossDisplay.textContent =
+      totalGainLoss >= 0 ? `+${totalGainLoss}` : `${totalGainLoss}`;
+
+    // Atualiza a cor dos textos (apenas se o modo de cor estiver ativado)
+    if (isColorModeEnabled) {
+      updateTextColor(gainOrLoss);
+    }
+
+    // Incrementar e atualizar o contador de rodadas
+    roundCounter++;
+    roundCounterDisplay.textContent = roundCounter;
   }, 4000); // Tempo da animação
+}
+
+// Função para atualizar a cor conforme o resultado da aposta (verde/vermelho)
+function updateTextColor(gainOrLoss) {
+  // A cor deve ser verde se for positivo e vermelho se for negativo
+  resultDisplay.style.color = gainOrLoss >= 0 ? "green" : "red";
+  totalGainLossDisplay.style.color = totalGainLoss >= 0 ? "green" : "red";
 }
 
 function getResult(rotation, chosenColor) {
