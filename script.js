@@ -66,7 +66,7 @@ function onClickTrigger(e) {
     // Atualização do saldo e resultado
     const gainOrLoss =
       resultMultiplier >= 0
-        ? betAmount * resultMultiplier - betAmount
+        ? betAmount * resultMultiplier
         : -betAmount;
     balance += gainOrLoss;
     totalGainLoss += gainOrLoss; // Atualiza o ganho/perda acumulado
